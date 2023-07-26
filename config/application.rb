@@ -34,6 +34,14 @@ module ReactRailsApiProjectTemplate
 
     # Configuration for the application, engines, and railties goes here.
     #
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins "*" # Replace with your actual origin(s) or use '*' for any origin
+        resource "*", headers: :any, methods: [:get, :post, :destroy, :patch, :put] # Adjust the allowed methods as needed
+
+      end
+
+    end
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
