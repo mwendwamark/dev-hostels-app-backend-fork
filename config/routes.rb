@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   # resources :users
   # post "auth/login", to: "authentication#login"
   # # Routing logic: fallback requests for React Router.
