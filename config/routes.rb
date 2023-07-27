@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reservations
   # resources :users
   # post "auth/login", to: "authentication#login"
   # # Routing logic: fallback requests for React Router.
@@ -13,3 +14,4 @@ post "/signup", to: "users#create"
 post "/login", to: "sessions#create" 
 delete "/logout", to: "sessions#destroy"
 end
+

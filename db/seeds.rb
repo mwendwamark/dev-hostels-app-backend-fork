@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Seed reservations
+Reservation.create(user_id: 1, hostel_id: 3, start_date: Date.today, end_date: Date.today + 29, price: 950, total: 28500)
