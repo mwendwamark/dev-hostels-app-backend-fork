@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_27_092337) do
+ActiveRecord::Schema.define(version: 2023_07_27_093753) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "reservation_id"
+    t.integer "ratings"
+    t.string "comments"
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "hostel_id"
