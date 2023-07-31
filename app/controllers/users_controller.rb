@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def show
     user = User.find(params[:id])
     render json: user, status: :ok
-    # render json: @current_user
+    render json: @current_user
   end
 
   def destroy
@@ -35,8 +35,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation)
-
     params.permit(:id, :user, :first_name, :last_name, :email, :phone_number, :password, :password_confirmation)
   end
 
