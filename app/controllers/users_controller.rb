@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:create, :update, :destroy, :show]
+  skip_before_action :authorize, only: [:create, :update, :destroy, :show, :index]
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
@@ -88,7 +88,7 @@ end
 #   private
 
 #   def user_params
-#     params.permit(:name, :email, :phone_number, :password, :password_confirmation)
+#     params.permit(:id, :user, :first_name, :last_name, :email, :phone_number, :password, :password_confirmation)
 #   end
 
 #   def set_user
