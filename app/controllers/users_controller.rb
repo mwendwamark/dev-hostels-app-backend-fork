@@ -32,6 +32,13 @@ class UsersController < ApplicationController
     head :no_content
   end
 
+  def changePass
+    user = User.find_by(email: params[:email])
+    user.update(password: params[:password],
+                password_confirmation: params[:password])
+    render json: user
+  end
+
   private
 
   def user_params
