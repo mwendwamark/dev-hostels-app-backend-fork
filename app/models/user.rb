@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :reservations
   has_many :reviews
-  # require "securerandom"
+  require "securerandom"
 
   has_secure_password
 
