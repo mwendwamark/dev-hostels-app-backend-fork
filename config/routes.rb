@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-
-
   resources :reviews
   resources :reservations
-
 
   resources :hostels
 
@@ -19,5 +16,6 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  patch "/reset", to: "users#update"
+  patch "/changePass", to: "users#changePass"
 end
-

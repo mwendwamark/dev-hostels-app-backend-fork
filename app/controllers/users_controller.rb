@@ -10,7 +10,9 @@ class UsersController < ApplicationController
     user = User.create!(user_params)
     session[:user_id] = user.id
     render json: user
-  end
+  end 
+
+
   def update
     user = User.find(params[:id])
     user.update!(user_params)
@@ -25,7 +27,15 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.destroy
     head :no_content
+
+
+  def changePass
+    user = User.find_by(email: params[:email])
+    user.update(password: params[:password],
+                password_confirmation: params[:password])
+    render json: user
   end
+
   private
   def user_params
     params.permit(:id, :user, :first_name, :last_name, :email, :phone_number, :password, :password_confirmation)
