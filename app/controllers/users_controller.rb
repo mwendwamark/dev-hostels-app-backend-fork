@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     user = User.create!(user_params)
     session[:user_id] = user.id
     render json: user
-  end
+  end 
 
   def update
     user = User.find(params[:id])
