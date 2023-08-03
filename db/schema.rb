@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2023_07_27_104122) do
     t.integer "user_id"
     t.string "latitude"
     t.string "longitude"
+    t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
