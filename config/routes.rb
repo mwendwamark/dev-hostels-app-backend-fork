@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :reservations
 
   resources :hostels
+  resources :items, only: [:create, :index]
 
   # resources :users
   # post "auth/login", to: "authentication#login"
