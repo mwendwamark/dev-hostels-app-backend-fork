@@ -19,6 +19,7 @@ class CreateHostels < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.string :latitude
       t.string :longitude
+      t.string :image_url
 
       t.timestamps
     end
