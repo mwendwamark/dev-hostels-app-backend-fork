@@ -17,7 +17,6 @@ Review.create(reservation_id: 2, ratings: 3, comments: "It was alright")
 Review.create(reservation_id: 3, ratings: 1, comments: "Very terrible")
 Review.create(reservation_id: 4, ratings: 4, comments: "It was a good experience")
 Review.create(reservation_id: 5, ratings: 5, comments: "The ambience was great")
-
 # Seed reservations
 Reservation.create(user_id: 1, hostel_id: 1, start_date: Date.today, end_date: Date.today + 29, price: 950, total: 28500)
 Reservation.create(user_id: 2, hostel_id: 1, start_date: Date.today, end_date: Date.today + 29, price: 950, total: 28500)

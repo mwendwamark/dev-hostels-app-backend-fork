@@ -6,8 +6,8 @@ class ReviewsController < ApplicationController
     
       def show
        review = Review.find(params[:id])
-        ifreview
-          render json:review
+        if review
+          render json: review
         else
           render json: { error: "Review not found" }, status: :not_found
         end
@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
     
       def create
        review =Review.create!(hostel_params)
-        render json:review, status: :created
+        render json: review, status: :created
       end
       
       def update
@@ -46,7 +46,8 @@ class ReviewsController < ApplicationController
     #   end
     
       def review_params
-        params.permit(:user_id, :hostel_id, :start_date, :end_date, :price, :total)
+        params.permit(:reservation_id, :ratings, :comments)
 
       end
 end
+
