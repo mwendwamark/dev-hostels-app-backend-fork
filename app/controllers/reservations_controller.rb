@@ -39,6 +39,16 @@ class ReservationsController < ApplicationController
       @reservation.destroy
       head :no_content
     end
+    def price_per_day
+      hostel = Hostel.find_by(id: params[:hostel_id]) # Change :property_id to :hostel_id
+    
+      if hostel
+        render json: { price_per_day: hostel.price_per_day }
+      else
+        render json: { error: 'Hostel not found' }, status: :not_found
+      end
+    end
+    
   
     private
   
@@ -47,7 +57,7 @@ class ReservationsController < ApplicationController
     end
   
     def reservation_params
-      params.require(:reservation).permit(:user_id, :hostel_id, :start_date, :end_date, :price, :total)
+      params.require(:reservation).permit(:start_date, :end_date)
     end
   end
   
