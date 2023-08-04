@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   resources :reviews
-  resources :reservations
-
+ 
   resources :hostels
+  resources :reservations
+  get '/hostels/:hostel_id/price_per_day', to: 'reservations#price_per_day'
+
+
+
+  # resources :hostels
   resources :items, only: [:create, :index]
 
   # resources :users
