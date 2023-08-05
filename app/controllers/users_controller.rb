@@ -7,13 +7,12 @@ class UsersController < ApplicationController
     users = User.all
     render json: users
   end
-  
 
   def create
     user = User.create!(user_params)
     session[:user_id] = user.id
     render json: user
-  end 
+  end
 
   def update
     user = User.find(params[:id])
@@ -22,9 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find(params[:id])
-    render json: user, status: :ok
-    render json: @current_user
+    render json: { user: authorize }
   end
 
   def destroy
@@ -54,6 +51,7 @@ class UsersController < ApplicationController
     render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
   end
 end
+
 # TOKEN AUTHORIZATION
 # class UsersController < ApplicationController
 #   skip_before_action :authenticate_request, only: [:create, :index, :destroy, :update, :show]
