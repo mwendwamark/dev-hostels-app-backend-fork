@@ -34,11 +34,7 @@ ActiveRecord::Schema.define(version: 2023_08_03_213407) do
     t.integer "user_id"
     t.string "latitude"
     t.string "longitude"
-    t.string "image_url_1"
-    t.string "image_url_2"
-    t.string "image_url_3"
-    t.string "image_url_4"
-    t.string "image_url_5"
+    t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price_per_day"
