@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_03_213407) do
+ActiveRecord::Schema.define(version: 2023_08_06_180029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "access_tokens", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "hostels", force: :cascade do |t|
     t.string "room_type"
@@ -46,6 +52,16 @@ ActiveRecord::Schema.define(version: 2023_08_03_213407) do
 
   create_table "items", force: :cascade do |t|
     t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mpesas", force: :cascade do |t|
+    t.string "phoneNumber"
+    t.string "amount"
+    t.string "checkoutRequestID"
+    t.string "merchantRequestID"
+    t.string "mpesaReceiptNumber"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
