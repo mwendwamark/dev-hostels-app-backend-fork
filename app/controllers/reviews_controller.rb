@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
       end
     
       def create
-       review =Review.create!(hostel_params)
+       review =Review.create!(review_params)
         render json: review, status: :created
       end
       
@@ -45,9 +45,11 @@ class ReviewsController < ApplicationController
     #     render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
     #   end
     
-      def review_params
-        params.permit(:reservation_id, :ratings, :comments)
+    private
 
+    def review_params
+        params.require(:review).permit(:ratings, :comments)
       end
+      
 end
 
