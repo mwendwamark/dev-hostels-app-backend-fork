@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2023_08_08_084123) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "sender_id", null: false
@@ -65,6 +64,7 @@ ActiveRecord::Schema.define(version: 2023_08_08_084123) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
 
   create_table "mpesas", force: :cascade do |t|
     t.string "phoneNumber"
