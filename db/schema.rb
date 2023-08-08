@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_06_180029) do
+ActiveRecord::Schema.define(version: 2023_08_08_084123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 2023_08_06_180029) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+
   create_table "mpesas", force: :cascade do |t|
     t.string "phoneNumber"
     t.string "amount"
@@ -99,4 +109,6 @@ ActiveRecord::Schema.define(version: 2023_08_06_180029) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "users", column: "sender_id"
 end
