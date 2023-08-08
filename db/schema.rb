@@ -15,6 +15,12 @@ ActiveRecord::Schema.define(version: 2023_08_08_084123) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "access_tokens", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "hostels", force: :cascade do |t|
     t.string "room_type"
     t.integer "total_occupancy"
@@ -50,6 +56,7 @@ ActiveRecord::Schema.define(version: 2023_08_08_084123) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "sender_id", null: false
@@ -58,6 +65,15 @@ ActiveRecord::Schema.define(version: 2023_08_08_084123) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
+
+  create_table "mpesas", force: :cascade do |t|
+    t.string "phoneNumber"
+    t.string "amount"
+    t.string "checkoutRequestID"
+    t.string "merchantRequestID"
+    t.string "mpesaReceiptNumber"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reservations", force: :cascade do |t|

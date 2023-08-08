@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   resources :messages
+
+  resources :mpesas
   resources :reviews
- 
+  resources :payments
   resources :hostels
   resources :reservations
   get '/hostels/:hostel_id/price_per_day', to: 'reservations#price_per_day'
 
-
+  #Mpesa routes
+  post 'stkpush', to: 'mpesas#stkpush'
+  post 'stkquery', to: 'mpesas#stkquery'
 
   # resources :hostels
   resources :items, only: [:create, :index]
