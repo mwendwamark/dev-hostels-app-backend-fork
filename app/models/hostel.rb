@@ -1,6 +1,6 @@
 class Hostel < ApplicationRecord
-    has_many :users
-    has_many :reservations
+    # has_many :users
+    # has_many :reservations
     
     validates :price_per_day, presence: true, numericality: { greater_than: 0 }
   
