@@ -33,6 +33,12 @@ class ReviewsController < ApplicationController
         update_review.update!(review_params)
         render json: update_review, status: :accepted
       end
+      def index_for_reservation
+        reservation = Reservation.find(params[:reservation_id])
+        reviews = reservation.reviews
+        render json: reviews
+      end
+    
       
       # def show
       #   @hostel =review.find(params[:id])
