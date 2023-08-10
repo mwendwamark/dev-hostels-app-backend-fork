@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   has_many :reservations
   has_many :reviews
+  has_many :messages
   require "securerandom"
 
   has_secure_password
+  serialize :wishlist, Array
 
   # Validations
   validates :email, :first_name, :last_name, :password, :password_confirmation, presence: true

@@ -7,24 +7,33 @@ class UsersController < ApplicationController
     users = User.all
     render json: users
   end
-  
 
   def create
     user = User.create!(user_params)
     session[:user_id] = user.id
-    render json: user
-  end 
-
-  def update
-    user = User.find(params[:id])
-    user.update!(user_params)
-    render json: user, status: :accepted
+    render json: user , status: :created
   end
 
+  def update_image
+  user = User.find(params[:id])
+
+  if params[:profile_image]
+    image = Cloudinary::Uploader.upload(params[:profile_image])
+    user.profile_image = image['url']
+  end
+
+  if user.save(validate: false) # Skip validation for other fields
+    render json: user, status: :accepted
+  else
+    render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+  end
+end
+
+  
+  
+
   def show
-    user = User.find(params[:id])
-    render json: user, status: :ok
-    render json: @current_user
+    render json: { user: authorize }
   end
 
   def destroy
@@ -39,6 +48,18 @@ class UsersController < ApplicationController
                 password_confirmation: params[:password])
     render json: user
   end
+  def add_to_wishlist
+    user = User.find(params[:user_id])
+    user.update(wishlist: params[:wishlist])
+    render json: user
+  end
+
+  def remove_from_wishlist
+    user = User.find(params[:user_id])
+    updated_wishlist = user.wishlist.reject { |id| id == params[:hostel_id].to_i }
+    user.update(wishlist: updated_wishlist)
+    render json: user
+  end  
 
   private
 
@@ -54,6 +75,7 @@ class UsersController < ApplicationController
     render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
   end
 end
+
 # TOKEN AUTHORIZATION
 # class UsersController < ApplicationController
 #   skip_before_action :authenticate_request, only: [:create, :index, :destroy, :update, :show]

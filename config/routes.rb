@@ -1,22 +1,35 @@
 Rails.application.routes.draw do
   resources :payments
+
+  resources :messages
+  resources :mpesas
+
   resources :reviews
-  resources :reservations
 
-  resources :hostels
+  resources :payments
+  resources :hostels 
 
-  # resources :users
-  # post "auth/login", to: "authentication#login"
-  # # Routing logic: fallback requests for React Router.
-  # # Leave this here to help deploy your app later!
-  # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  get '/hostels/:hostel_id/price_per_day', to: 'reservations#price_per_day'
+  get '/hostels/:hostel_id/reservations/:reservation_id/index_for_reservation', to: 'reviews#index_for_reservation'
 
-  #  Without JWT authentication
-  resources :users
+  # Mpesa routes
+  post 'stkpush', to: 'mpesas#stkpush'
+  post 'stkquery', to: 'mpesas#stkquery'
+
+  resources :items, only: [:create, :index]
+  resources :users do
+    get '/messages', to: 'messages#index_for_user'
+    post 'add_to_wishlist', to: "users#add_to_wishlist"
+  post 'remove_from_wishlist', to: "users#remove_from_wishlist"  end
+
   get "/me", to: "users#show"
+  patch '/updateimage/:id', to: 'users#update_image', as: :update_image 
   post "/signup", to: "users#create"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   patch "/reset", to: "users#update"
   patch "/changePass", to: "users#changePass"
+ 
+      
+  
 end

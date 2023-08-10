@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_03_125823) do
+
+ActiveRecord::Schema.define(version: 2023_08_09_104950) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "access_tokens", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "hostels", force: :cascade do |t|
     t.string "room_type"
@@ -34,7 +42,38 @@ ActiveRecord::Schema.define(version: 2023_08_03_125823) do
     t.integer "user_id"
     t.string "latitude"
     t.string "longitude"
-    t.string "image_url"
+    t.string "image_url_1"
+    t.string "image_url_2"
+    t.string "image_url_3"
+    t.string "image_url_4"
+    t.string "image_url_5"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_per_day"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
+  create_table "mpesas", force: :cascade do |t|
+    t.string "phoneNumber"
+    t.string "amount"
+    t.string "checkoutRequestID"
+    t.string "merchantRequestID"
+    t.string "mpesaReceiptNumber"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -76,9 +115,9 @@ ActiveRecord::Schema.define(version: 2023_08_03_125823) do
     t.string "description"
     t.string "phone_number"
     t.string "profile_image"
+    t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "wishlist"
   end
 
-  add_foreign_key "payments", "reservations"
-end
