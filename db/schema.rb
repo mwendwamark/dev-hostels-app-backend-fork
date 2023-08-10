@@ -58,10 +58,12 @@ ActiveRecord::Schema.define(version: 2023_08_09_104950) do
 
   create_table "messages", force: :cascade do |t|
     t.string "content"
-    t.string "sender_id"
-    t.string "receiver_id"
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "mpesas", force: :cascade do |t|
@@ -103,9 +105,12 @@ ActiveRecord::Schema.define(version: 2023_08_09_104950) do
     t.string "description"
     t.string "phone_number"
     t.string "profile_image"
+    t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "wishlist"
   end
 
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "users", column: "sender_id"
 end
