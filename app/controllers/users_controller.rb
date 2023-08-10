@@ -14,11 +14,23 @@ class UsersController < ApplicationController
     render json: user
   end
 
-  def update
-    user = User.find(params[:id])
-    user.update!(user_params)
-    render json: user, status: :accepted
+  def update_image
+  user = User.find(params[:id])
+
+  if params[:profile_image]
+    image = Cloudinary::Uploader.upload(params[:profile_image])
+    user.profile_image = image['url']
   end
+
+  if user.save(validate: false) # Skip validation for other fields
+    render json: user, status: :accepted
+  else
+    render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+  end
+end
+
+  
+  
 
   def show
     render json: { user: authorize }
@@ -36,6 +48,18 @@ class UsersController < ApplicationController
                 password_confirmation: params[:password])
     render json: user
   end
+  def add_to_wishlist
+    user = User.find(params[:user_id])
+    user.update(wishlist: params[:wishlist])
+    render json: user
+  end
+
+  def remove_from_wishlist
+    user = User.find(params[:user_id])
+    updated_wishlist = user.wishlist.reject { |id| id == params[:hostel_id].to_i }
+    user.update(wishlist: updated_wishlist)
+    render json: user
+  end  
 
   private
 

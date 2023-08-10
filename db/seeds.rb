@@ -88,9 +88,38 @@ Hostel.create!(
   image_url_5: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1175&q=80",
   price_per_day: 800,
 )
+user1= User.create(last_name: "Mark", first_name: "Mwendwa", email: "markm@gmail.com", email_verified_at: Date.today, password: "mark@123", password_confirmation: "mark@123", remember_token: "Jkle1234", description: "I am a student at Moringa School.", phone_number: "+254-702-705-147", profile_image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1985&q=80")
+user2= User.create(last_name: "Azami", first_name: "Kinyua", email: "zam@gmail.com", email_verified_at: Date.today, password: "zamzam", password_confirmation: "zamzam", remember_token: "Jxle1234", description: "I am a student at Kenya School of Law.", phone_number: "+254-787-705-147", profile_image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1985&q=80")
 
-# User.create(last_name: "Mark", first_name: "Mwendwa", email: "markm@gmail.com", email_verified_at: Date.today, password: "mark@123", password_confirmation: "mark@123", remember_token: "Jkle1234", description: "I am a student at Moringa School.", phone_number: "+254-702-705-147", profile_image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1985&q=80")
-# User.create(last_name: "Azami", first_name: "Kinyua", email: "zam@gmail.com", email_verified_at: Date.today, password: "zamzam", password_confirmation: "zamzam", remember_token: "Jxle1234", description: "I am a student at Kenya School of Law.", phone_number: "+254-787-705-147", profile_image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1985&q=80")
+# Create sample messages
+# Message.create!(
+#   content: "Hello, John!",
+#   sender_id: user2,
+#   receiver_id: user1
+# )
+
+# Message.create!(
+#   content: "Hi, Jane! How are you?",
+#   sender_id: user1,
+#   receiver_id: user2
+# )
+
+# Message.create!(
+#   content: "I'm doing great! How about you?",
+#   sender_id: user2,
+#   receiver_id: user1
+# )
+
+# Message.create!(
+#   content: "I'm good too. Just working on my project.",
+#   sender_id: user1,
+#   receiver_id: user2
+# )
+
+puts "Seeding messages completed!"
+
+# user1= User.create(last_name: "Mark", first_name: "Mwendwa", email: "markm@gmail.com", email_verified_at: Date.today, password: "mark@123", password_confirmation: "mark@123", remember_token: "Jkle1234", description: "I am a student at Moringa School.", phone_number: "+254-702-705-147", profile_image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1985&q=80")
+# user2= User.create(last_name: "Azami", first_name: "Kinyua", email: "zam@gmail.com", email_verified_at: Date.today, password: "zamzam", password_confirmation: "zamzam", remember_token: "Jxle1234", description: "I am a student at Kenya School of Law.", phone_number: "+254-787-705-147", profile_image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1985&q=80")
 # User.create(last_name: "Aiden", first_name: "Peters", email: "apeters@gmail.com", email_verified_at: Date.today, password: "petero", password_confirmation: "petero", remember_token: "GSkle1234", description: "I am a student at Kenyatta University.", phone_number: "+254-727-665-777", profile_image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1985&q=80")
 # User.create(last_name: "Lisa", first_name: "Kendi", email: "kendi@gmail.com", email_verified_at: Date.today, password: "biblio", password_confirmation: "biblio", remember_token: "Xec81234", description: "I am a student at Moringa School.", phone_number: "+254-702-705-187", profile_image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1985&q=80")
 # User.create(last_name: "Brenda", first_name: "Patience", email: "bpk12@gmail.com", email_verified_at: Date.today, password: "gingerly", password_confirmation: "gingerly", remember_token: "Jkle1235", description: "I am a student at University of Nairobi.", phone_number: "+254-759-221-001", profile_image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1985&q=80")

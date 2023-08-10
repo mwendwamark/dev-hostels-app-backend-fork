@@ -1,12 +1,11 @@
 class User < ApplicationRecord
   has_many :reservations
   has_many :reviews
-  has_many :sent_messages, class_name: 'Message', foreign_key: 'sender_id'
-  has_many :received_messages, class_name: 'Message', foreign_key: 'receiver_id'
-
+  has_many :messages
   require "securerandom"
 
   has_secure_password
+  serialize :wishlist, Array
 
   # Validations
   validates :email, :first_name, :last_name, :password, :password_confirmation, presence: true
