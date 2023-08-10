@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :description
       t.string :phone_number
       t.string :profile_image
+      t.string :role
 
       t.timestamps
     end

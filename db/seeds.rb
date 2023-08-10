@@ -458,4 +458,4 @@ user1= User.create(last_name: "Mark", first_name: "Mwendwa", email: "markm@gmail
 user2= User.create(last_name: "Azami", first_name: "Kinyua", email: "zam@gmail.com", email_verified_at: Date.today, password: "zamzam", password_confirmation: "zamzam", remember_token: "Jxle1234", description: "I am a student at Kenya School of Law.", phone_number: "+254-787-705-147", profile_image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1985&q=80")
 
 
-puts "Seeding messages completed!"
+puts "Seeding completed!"
