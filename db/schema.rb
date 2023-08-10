@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2023_08_09_104950) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +78,14 @@ ActiveRecord::Schema.define(version: 2023_08_09_104950) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.string "mode_of_payment"
+    t.bigint "reservation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reservation_id"], name: "index_payments_on_reservation_id"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "hostel_id"
@@ -111,6 +121,3 @@ ActiveRecord::Schema.define(version: 2023_08_09_104950) do
     t.string "wishlist"
   end
 
-  add_foreign_key "messages", "users", column: "receiver_id"
-  add_foreign_key "messages", "users", column: "sender_id"
-end

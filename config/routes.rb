@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :payments
+
   resources :messages
   resources :mpesas
+
   resources :reviews
 
   resources :payments
