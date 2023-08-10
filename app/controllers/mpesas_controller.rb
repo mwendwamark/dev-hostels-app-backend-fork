@@ -11,7 +11,7 @@ class MpesasController < ApplicationController
         'Password': password,
         'Timestamp': timestamp,
         'CheckoutRequestID': params[:checkoutRequestID]
-        }.to_json
+        }.to_json+
 
         headers = {
         Content_type: 'application/json',
