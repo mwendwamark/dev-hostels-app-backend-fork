@@ -16,13 +16,21 @@ Welcome to the backend repository of the Dev-Hostels web application. This backe
 - Rails: >= 6.1.0
 - PostgreSQL: >= 12.0
 
+## Entity Relationship Diagram
+
+The API makes use of the following relationships:-
+
+![DEV-HOSTELS](https://github.com/sheringugi/dev-hostels-app-backend/assets/126586468/11968f55-e394-479e-887d-bec9caa6514e)
+
+
+
 ## Setup Instructions
 
 1. Clone the repository:
 
 ```sh
-git clone <repository_url>
-cd <repository_directory>
+git clone https://github.com/sheringugi/dev-hostels-app-backend
+cd dev-hostels-app-backend
 ```
 
 2. Install dependencies:
@@ -68,9 +76,6 @@ For more detailed information about API endpoints, refer to the API documentatio
 
 The backend can be deployed to platforms like Heroku, AWS, or any other hosting provider of your choice.
 
-## Contributors
-
-- [Your Name](https://github.com/yourusername)
 
 ## License
 
