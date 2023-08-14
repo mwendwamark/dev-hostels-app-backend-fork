@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   resources :reviews
 
-  resources :payments
+  resources :reservations
   resources :hostels 
+  
 
   get '/hostels/:hostel_id/price_per_day', to: 'reservations#price_per_day'
   get '/hostels/:hostel_id/reservations/:reservation_id/index_for_reservation', to: 'reviews#index_for_reservation'
@@ -31,5 +32,6 @@ Rails.application.routes.draw do
   patch "/changePass", to: "users#changePass"
  
       
+  get '/hello', to: 'application#hello_world' 
   
 end
