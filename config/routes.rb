@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   resources :payments
-
   resources :messages
   resources :mpesas
-
   resources :reviews
-
   resources :reservations
   resources :hostels 
+  resources :users
   
 
   get '/hostels/:hostel_id/price_per_day', to: 'reservations#price_per_day'
